@@ -45,6 +45,14 @@ public abstract class EasyBitmapMeshView extends View {
         calculateVerts();
     }
 
+    @Override
+    public void invalidate(){
+
+        calculateVerts();
+
+        super.invalidate();
+    }
+
     private void calculateVerts(){
         normalmap = getNormalMap();
 
@@ -65,7 +73,7 @@ public abstract class EasyBitmapMeshView extends View {
                     int x = j * normalBlockWidth;
                     int y = i * normalBlockHeight;
 
-                    Log.i("factor", "x:" + x + ",y:" + y);
+//                    Log.i("factor", "x:" + x + ",y:" + y);
 
                     if(x < 0) x = 0;
                     if(y < 0) y = 0;
